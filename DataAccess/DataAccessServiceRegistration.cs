@@ -13,9 +13,16 @@ public static class DataAccessServiceRegistration
     {
 
         services.AddDbContext<BaseDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("TobetoDotNet3ACS")));
-       
-        // nota ekle
+
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IApplicantRepository, ApplicantRepository>();
+        services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+        services.AddScoped<IInstructorRepository, InstructorRepository>();
+        services.AddScoped<IApplicationRepository, ApplicationRepository>();
+        services.AddScoped<IApplicationStateRepository, ApplicationStateRepository>();
+        services.AddScoped<IBootcampRepository, BootcampRepository>();
+        services.AddScoped<IBootcampStateRepository, BootcampStateRepository>();
+        services.AddScoped<IBlackListRepository, BlackListRepository>();
 
 
         return services;

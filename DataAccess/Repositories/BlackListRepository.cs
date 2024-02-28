@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repositories;
 
-public class ApplicationStateRepository : EfRepositoryBase<ApplicationState, int, BaseDbContext> , IApplicationStateRepository
+public class BlackListRepository : EfRepositoryBase<BlackList, int, BaseDbContext>, IBlackListRepository
 {
-    public ApplicationStateRepository(BaseDbContext context) : base(context)
+    public BlackListRepository(BaseDbContext context) : base(context)
     {
     }
 }

@@ -8,6 +8,9 @@ public class Applicant : User
     
     public ICollection<Application> Applications { get; set; }
 
+    public virtual BlackList? BlackList { get; set; }
+
+
     public Applicant()
     {
         Applications = new HashSet<Application>();

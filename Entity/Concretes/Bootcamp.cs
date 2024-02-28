@@ -10,7 +10,7 @@ namespace Entity.Concretes;
 public class Bootcamp : BaseEntity<int>
 {
     public string Name { get; set; }
-    public int InstructorId { get; set; }
+    public int? InstructorId { get; set; }
 
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }

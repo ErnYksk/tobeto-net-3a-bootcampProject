@@ -25,6 +25,7 @@ public class UserManager : IUserService
         CreateUserResponse createUserResponse = new CreateUserResponse();
         createUserResponse.FirstName= user.FirstName;
         createUserResponse.CreatedDate=user.CreatedDate;
+        createUserResponse.LastName=user.LastName;
         return createUserResponse;
     }
 
