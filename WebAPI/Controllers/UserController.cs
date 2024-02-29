@@ -25,9 +25,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> getAll()
+        public async Task<List<GetAllUserResponse>> GetAll()
         {
-            return Ok(await _userService.GetAll());
+            return await _userService.GetAllAsync();
         }
     }
 }

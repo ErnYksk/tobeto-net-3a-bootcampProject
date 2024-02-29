@@ -1,4 +1,5 @@
-﻿using Business.Abstracts;
+﻿using AutoMapper;
+using Business.Abstracts;
 using Business.Request.User;
 using Business.Response.User;
 using DataAccess.Abstracs;
@@ -10,27 +11,31 @@ public class UserManager : IUserService
 {
     private readonly IUserRepository _userRepository;
 
-    public UserManager(IUserRepository userRepository)
+    private readonly IMapper _mapper;
+
+    public UserManager(IUserRepository userRepository, IMapper mapper)
     {
+        _mapper = mapper;
         _userRepository = userRepository;
     }
 
     public async Task<CreateUserResponse> AddAsync(CreateUserRequest createUserRequest)
     {
-        User user=new User();
-        user.FirstName = createUserRequest.FirstName;
-        user.LastName = createUserRequest.LastName;
-        user.Email = createUserRequest.EmailAddress;
+
+        User user = _mapper.Map<User>(createUserRequest);
         await _userRepository.AddAsync(user);
-        CreateUserResponse createUserResponse = new CreateUserResponse();
-        createUserResponse.FirstName= user.FirstName;
-        createUserResponse.CreatedDate=user.CreatedDate;
-        createUserResponse.LastName=user.LastName;
-        return createUserResponse;
+
+        CreateUserResponse response = _mapper.Map<CreateUserResponse>(user);
+
+        return response;  //
     }
 
-    public Task<List<User>> GetAll()
+    public async Task<List<GetAllUserResponse>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        List<User> users = await _userRepository.GetAllAsync();
+        List<GetAllUserResponse> responses = _mapper.Map<List<GetAllUserResponse>>(users);  //
+        return responses;
     }
+
+   
 }

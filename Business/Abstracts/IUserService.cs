@@ -7,5 +7,5 @@ namespace Business.Abstracts;
 public interface IUserService
 {
     Task <CreateUserResponse> AddAsync(CreateUserRequest createUserRequest);
-    Task<List<User>> GetAll();
+    Task<List<GetAllUserResponse>> GetAllAsync();
 }

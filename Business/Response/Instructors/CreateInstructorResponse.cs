@@ -1,6 +1,12 @@
-﻿namespace Business.Response.User;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class CreateUserResponse
+namespace Business.Responses.Instructor;
+
+public class CreateInstructorResponse
 {
     public string UserName { get; set; }
     public string FirstName { get; set; }
@@ -9,4 +15,6 @@ public class CreateUserResponse
     public string NationalIdentity { get; set; }
     public string Email { get; set; }
     public string Password { get; set; }
+    public string CompanyName { get; set; }
+
 }

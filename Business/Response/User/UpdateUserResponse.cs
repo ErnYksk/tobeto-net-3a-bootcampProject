@@ -1,6 +1,6 @@
 ﻿namespace Business.Response.User;
 
-public class CreateUserResponse
+public class UpdateUserResponse
 {
     public string UserName { get; set; }
     public string FirstName { get; set; }
