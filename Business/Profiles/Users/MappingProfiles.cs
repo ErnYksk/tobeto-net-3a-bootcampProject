@@ -7,10 +7,18 @@ namespace Business.Profiles.Users
 {
     public class MappingProfiles : Profile
     {
-        public MappingProfiles() {
+        public MappingProfiles()
+        {
 
             CreateMap<User, CreateUserRequest>().ReverseMap();
             CreateMap<User, CreateUserResponse>().ReverseMap();
+            CreateMap<User, UpdateUserRequest>().ReverseMap();
+
+            CreateMap<User, CreateUserResponse>().ReverseMap();
+            CreateMap<User, DeleteUserResponse>().ReverseMap();
+            CreateMap<User, UpdateUserResponse>().ReverseMap();
+            CreateMap<User, GetAllUserResponse>().ReverseMap();
+            CreateMap<User, GetByIdUserResponse>().ReverseMap();
         }
     }
 }

@@ -27,7 +27,7 @@ public class UserManager : IUserService
 
         CreateUserResponse response = _mapper.Map<CreateUserResponse>(user);
 
-        return response;  //
+        return response;  
     }
 
     public async Task<List<GetAllUserResponse>> GetAllAsync()
